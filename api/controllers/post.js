@@ -23,37 +23,6 @@ export const getPost = (req,res)=>{
     })
 };
 
-// export const getPost = (req, res) => {
-//     const q =
-//       "SELECT p.id, p.title, p.desc, p.img, p.cat, p.date, u.username, u.img AS userImg FROM posts p LEFT JOIN users u ON u.id = p.uid WHERE p.id = ?";
-  
-//     db.query(q, [req.params.id], (err, data) => {
-//       if (err) {
-//         console.error(err);
-//         return res.status(500).json("Internal Server Error");
-//       }
-  
-//       if (data.length === 0) {
-//         return res.status(404).json("Post not found");
-//       }
-  
-//       const post = {
-//         id: data[0].id,
-//         title: data[0].title,
-//         desc: data[0].desc,
-//         img: data[0].img,
-//         cat: data[0].cat,
-//         date: data[0].date,
-//         username: data[0].username,
-//         userImg: data[0].userImg,
-//       };
-  
-//       return res.status(200).json(post);
-//     });
-//   };
-  
-  
-
 export const addPost = (req,res)=>{
     const token = req.cookies.access_token;
     if(!token) return res.status(401).json("Not authenticated!");
